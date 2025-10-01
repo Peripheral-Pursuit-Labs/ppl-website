@@ -1,0 +1,555 @@
+/* ===========================
+   Variables & Root Styles
+   =========================== */
+:root {
+  /* Light Mode Colors */
+  --bg-primary-light: #ffffff;
+  --bg-secondary-light: #f8f7fc;
+  --text-primary-light: #2c2c2c;
+  --text-secondary-light: #5c5c5c;
+  --border-light: #e1dff2;
+
+  /* Dark Mode Colors */
+  --bg-primary-dark: #1a1a1a;
+  --bg-secondary-dark: #242424;
+  --text-primary-dark: #e8e8e8;
+  --text-secondary-dark: #b8b8b8;
+  --border-dark: #3a3a3a;
+
+  /* Brand Purple */
+  --purple-primary: #9b87f5;
+  --purple-hover: #8b75e8;
+  --purple-light: #b5a5f9;
+  --purple-dark: #7b67d5;
+}
+
+/* ===========================
+   Base Styles
+   =========================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.7;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light Mode (default for toggle, but body starts with dark-mode class) */
+body {
+  background-color: var(--bg-primary-light);
+  color: var(--text-primary-light);
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: var(--bg-primary-dark);
+  color: var(--text-primary-dark);
+}
+
+/* ===========================
+   Theme Toggle Button
+   =========================== */
+.theme-toggle {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  background: transparent;
+  border: 2px solid var(--purple-primary) !important;
+  border-radius: 50% !important;
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.theme-toggle:hover {
+  background-color: var(--purple-primary);
+  transform: scale(1.1);
+  border-color: var(--purple-primary);
+}
+
+.theme-icon::before {
+  content: '🌙';
+}
+
+body.dark-mode .theme-icon::before {
+  content: '☀️';
+}
+
+/* ===========================
+   Typography
+   =========================== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin-top: 0;
+  color: var(--text-primary-light);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: var(--text-primary-dark);
+}
+
+a {
+  color: var(--purple-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--purple-hover);
+}
+
+/* ===========================
+   Buttons
+   =========================== */
+.button,
+button,
+input[type="submit"],
+input[type="button"] {
+  background-color: transparent;
+  border: 2px solid var(--purple-primary);
+  color: var(--purple-primary);
+  transition: all 0.3s ease;
+  line-height: 1.5;
+  display: inline-block;
+  text-align: center;
+}
+
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background-color: var(--purple-primary);
+  border-color: var(--purple-primary);
+  color: white;
+}
+
+.button-primary,
+input[type="submit"].button-primary {
+  background-color: var(--purple-primary);
+  border-color: var(--purple-primary);
+  color: white;
+  font-weight: 500;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.button-primary:hover,
+input[type="submit"].button-primary:hover {
+  background-color: var(--purple-hover);
+  border-color: var(--purple-hover);
+}
+
+/* ===========================
+   Form Elements
+   =========================== */
+input[type="email"],
+input[type="text"],
+textarea {
+  background-color: var(--bg-primary-light);
+  border: 2px solid var(--border-light);
+  color: var(--text-primary-light);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode input[type="email"],
+body.dark-mode input[type="text"],
+body.dark-mode textarea {
+  background-color: var(--bg-secondary-dark);
+  border-color: var(--border-dark);
+  color: var(--text-primary-dark);
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus,
+textarea:focus {
+  border-color: var(--purple-primary);
+  outline: none;
+}
+
+label {
+  font-weight: 500;
+  color: var(--text-primary-light);
+}
+
+body.dark-mode label {
+  color: var(--text-primary-dark);
+}
+
+/* ===========================
+   Hero Section
+   =========================== */
+.hero {
+  padding: 8rem 0 6rem;
+  text-align: center;
+}
+
+.logo {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--purple-primary);
+  margin-bottom: 0.5rem;
+}
+
+.tagline {
+  font-size: 1.3rem;
+  color: var(--text-secondary-light);
+  margin-bottom: 3rem;
+}
+
+body.dark-mode .tagline {
+  color: var(--text-secondary-dark);
+}
+
+.hero-content {
+  margin-top: 3rem;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.hero-subhead {
+  font-size: 1.4rem;
+  color: var(--text-secondary-light);
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body.dark-mode .hero-subhead {
+  color: var(--text-secondary-dark);
+}
+
+.hero-supporting {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  color: var(--text-secondary-light);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body.dark-mode .hero-supporting {
+  color: var(--text-secondary-dark);
+}
+
+/* ===========================
+   Sections
+   =========================== */
+.section {
+  padding: 5rem 0;
+}
+
+.section-alt {
+  background-color: var(--bg-secondary-light);
+}
+
+body.dark-mode .section-alt {
+  background-color: var(--bg-secondary-dark);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--purple-primary);
+}
+
+/* ===========================
+   Service Cards
+   =========================== */
+.service-card {
+  padding: 2rem;
+  border-radius: 8px;
+  border: 2px solid var(--purple-primary);
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  height: 100%;
+  background-color: var(--bg-primary-light);
+}
+
+body.dark-mode .service-card {
+  border-color: var(--purple-primary);
+  background-color: var(--bg-primary-dark);
+}
+
+.service-card:hover {
+  border-color: var(--purple-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(155, 135, 245, 0.2);
+}
+
+.service-card h5 {
+  color: var(--purple-primary);
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.service-card p {
+  margin-bottom: 0;
+  color: var(--text-secondary-light);
+}
+
+body.dark-mode .service-card p {
+  color: var(--text-secondary-dark);
+}
+
+/* ===========================
+   Benefits List
+   =========================== */
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.benefits-list li {
+  padding: 1.2rem 0 1.2rem 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+  border-left: 3px solid transparent;
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.benefits-list li:hover {
+  border-left-color: var(--purple-primary);
+}
+
+body.dark-mode .benefits-list li {
+  border-bottom-color: var(--border-dark);
+}
+
+.benefits-list li:last-child {
+  border-bottom: none;
+}
+
+.benefits-list strong {
+  color: var(--purple-primary);
+}
+
+/* ===========================
+   Process Steps
+   =========================== */
+.process-step {
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-left: 3px solid var(--purple-primary);
+  padding-left: 1.5rem;
+}
+
+.process-step h6 {
+  color: var(--purple-primary);
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.process-step p {
+  margin-bottom: 0;
+  color: var(--text-secondary-light);
+}
+
+body.dark-mode .process-step p {
+  color: var(--text-secondary-dark);
+}
+
+/* ===========================
+   Contact Section
+   =========================== */
+.contact-intro {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  color: var(--text-secondary-light);
+}
+
+body.dark-mode .contact-intro {
+  color: var(--text-secondary-dark);
+}
+
+.muted {
+  font-size: 0.9rem;
+  color: var(--text-secondary-light);
+  margin-top: 0.5rem;
+}
+
+body.dark-mode .muted {
+  color: var(--text-secondary-dark);
+}
+
+/* ===========================
+   Footer
+   =========================== */
+.footer {
+  padding: 3rem 0;
+  text-align: center;
+  border-top: 1px solid var(--border-light);
+  color: var(--text-secondary-light);
+  font-size: 0.9rem;
+}
+
+body.dark-mode .footer {
+  border-top-color: var(--border-dark);
+  color: var(--text-secondary-dark);
+}
+
+.footer p {
+  margin-bottom: 0.5rem;
+}
+
+.footer a {
+  color: var(--text-secondary-light);
+  transition: color 0.2s ease;
+}
+
+.footer a:hover {
+  color: var(--purple-primary);
+}
+
+body.dark-mode .footer a {
+  color: var(--text-secondary-dark);
+}
+
+body.dark-mode .footer a:hover {
+  color: var(--purple-primary);
+}
+
+/* ===========================
+   Content Pages (Privacy, etc.)
+   =========================== */
+.page-header {
+  padding: 4rem 0 2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-light);
+}
+
+body.dark-mode .page-header {
+  border-bottom-color: var(--border-dark);
+}
+
+.content-page {
+  padding: 4rem 0;
+}
+
+.content-page h2 {
+  font-size: 2.5rem;
+  color: var(--purple-primary);
+  margin-bottom: 0.5rem;
+}
+
+.content-page h3 {
+  font-size: 1.8rem;
+  color: var(--purple-primary);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.content-page h4 {
+  font-size: 1.4rem;
+  color: var(--purple-light);
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+body.dark-mode .content-page h4 {
+  color: var(--purple-light);
+}
+
+.content-page p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  font-size: 1.3rem;
+}
+
+.content-page ul {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+.content-page li {
+  margin-bottom: 0.5rem;
+  line-height: 1.8;
+  font-size: 1.25rem;
+}
+
+.last-updated {
+  color: var(--text-secondary-light);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+body.dark-mode .last-updated {
+  color: var(--text-secondary-dark);
+}
+
+/* ===========================
+   Responsive Design
+   =========================== */
+@media (max-width: 768px) {
+  .hero {
+    padding: 5rem 0 3rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subhead {
+    font-size: 1.2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .theme-toggle {
+    top: 1rem;
+    right: 1rem;
+    width: 45px;
+    height: 45px;
+  }
+
+  .service-card,
+  .process-step {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subhead {
+    font-size: 1.1rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+}

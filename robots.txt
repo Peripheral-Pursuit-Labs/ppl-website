@@ -1,0 +1,7 @@
+# robots.txt for ppl.dev
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://ppl.dev/sitemap.xml
