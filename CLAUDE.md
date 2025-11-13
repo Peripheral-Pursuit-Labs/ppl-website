@@ -16,11 +16,16 @@ Static marketing website for Peripheral Pursuit Labs, a software development stu
 
 ## File Structure
 
-- `index.html` - Main landing page with hero, services, process, and contact sections
-- `privacy.html` - Privacy policy page
-- `terms.html` - Terms of service page
+- `index.html` - Main landing page with hero, services, process, and contact sections (root)
+- `privacy/index.html` - Privacy policy page (served at /privacy)
+- `terms/index.html` - Terms of service page (served at /terms)
+- `de-dictionary/index.html` - DE Dictionary product page (served at /de-dictionary)
+- `de-dictionary-privacy/index.html` - DE Dictionary privacy policy (served at /de-dictionary-privacy)
+- `de-dictionary-support/index.html` - DE Dictionary support page (served at /de-dictionary-support)
 - `css/style.css` - All custom styles with CSS variables for light/dark theme
 - `js/theme.js` - Theme toggle logic and smooth scroll behavior
+
+**Clean URLs:** Pages use directory-based structure (e.g., `privacy/index.html`) to enable clean URLs without `.html` extensions on GitHub Pages. All asset references use absolute paths (`/css/style.css`, `/js/theme.js`, `/favicon.svg`) to work correctly from subdirectories.
 
 ## Theme System
 
@@ -44,7 +49,14 @@ Push to `main` branch → automatically deploys via GitHub Pages. No build step 
 
 ## Local Development
 
-Open `index.html` directly in browser. Changes to HTML/CSS/JS are immediately visible on refresh.
+Since the site uses absolute paths for clean URLs, run a local web server for testing:
+
+```bash
+python3 -m http.server 8000
+# Then visit http://localhost:8000
+```
+
+Do NOT open HTML files directly with `file://` protocol - absolute paths won't resolve correctly. Changes to HTML/CSS/JS are immediately visible on refresh.
 
 ## Design Constraints
 

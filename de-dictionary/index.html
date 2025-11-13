@@ -187,6 +187,46 @@
     </div>
   </section>
 
+  <!-- Support Section -->
+  <section id="support" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <h3 class="section-title">Get Support</h3>
+          <p style="text-align: center; font-size: 1.2rem; color: var(--text-secondary-light); max-width: 700px; margin: 0 auto 3rem;">Have a question, found a bug, or want to request a feature? We're here to help. Fill out the form below and we'll get back to you as soon as possible.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="eight columns offset-by-two">
+          <form action="https://formspree.io/f/xyzlyoer" method="POST">
+            <input type="hidden" name="_subject" value="DE Dictionary Support Request">
+
+            <label for="name">Your Name</label>
+            <input class="u-full-width" type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input class="u-full-width" type="email" id="email" name="email" required>
+
+            <label for="request-type">Request Type</label>
+            <select class="u-full-width" id="request-type" name="request-type" required>
+              <option value="">Select a type...</option>
+              <option value="Question">Question</option>
+              <option value="Bug Report">Bug Report</option>
+              <option value="Feature Request">Feature Request</option>
+              <option value="Other">Other</option>
+            </select>
+
+            <label for="message">Details</label>
+            <textarea class="u-full-width" id="message" name="message" rows="8" placeholder="Please provide as much detail as possible. For bug reports, include your device model, iOS version, and steps to reproduce the issue." required></textarea>
+
+            <input class="button-primary" type="submit" value="Submit Request">
+            <p class="muted">We typically respond within 1–2 business days. For urgent issues, email us directly at <a href="mailto:hello@ppl.dev">hello@ppl.dev</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
