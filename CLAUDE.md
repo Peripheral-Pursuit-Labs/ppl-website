@@ -27,6 +27,27 @@ Static marketing website for Peripheral Pursuit Labs, a software development stu
 
 **Clean URLs:** Pages use directory-based structure (e.g., `privacy/index.html`) to enable clean URLs without `.html` extensions on GitHub Pages. All asset references use absolute paths (`/css/style.css`, `/js/theme.js`, `/favicon.svg`) to work correctly from subdirectories.
 
+## Path Usage Rules
+
+**CRITICAL: All internal links and local assets MUST use absolute paths starting with `/`**
+
+Due to the clean URL structure (serving `privacy/index.html` at `/privacy`), relative paths break when pages are in subdirectories.
+
+### Required Absolute Paths:
+- **CSS files**: `href="/css/style.css"` ✓ NOT `href="css/style.css"` ✗
+- **JavaScript files**: `src="/js/theme.js"` ✓ NOT `src="js/theme.js"` ✗
+- **Images**: `src="/images/file.png"` ✓ NOT `src="images/file.png"` ✗
+- **Favicon**: `href="/favicon.svg"` ✓ NOT `href="favicon.svg"` ✗
+- **Internal page links**: `href="/privacy"` ✓ NOT `href="privacy"` ✗
+- **All local navigation**: Always prefix with `/`
+
+### Exceptions:
+- External URLs: `https://example.com` (no change needed)
+- Anchor links: `href="#contact"` (same-page anchors are fine)
+- Form actions: External service URLs like Formspree (no change needed)
+
+**When adding new pages or assets, always verify all paths are absolute.**
+
 ## Theme System
 
 The site uses CSS custom properties for theming:
